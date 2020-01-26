@@ -3,11 +3,12 @@ package io.github.sooakim.auth.controller
 import io.github.sooakim.auth.data.repository.UserRepository
 import io.github.sooakim.auth.util.ext.encodeSHA256
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
 import javax.servlet.http.HttpSession
 
-@RestController
+@Controller
 @RequestMapping("/login")
 class LoginController{
     @Autowired
@@ -33,7 +34,7 @@ class LoginController{
             if(user.password == password.encodeSHA256()) {
                 session.setAttribute("userId", user.userId)
                 model.addAttribute("title", "Welcome")
-                model.addAttribute("userId", "userId")
+                model.addAttribute("userId", user.userId)
                 "welcome"
             }
             else {

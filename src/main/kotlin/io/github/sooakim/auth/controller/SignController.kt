@@ -4,10 +4,11 @@ import io.github.sooakim.auth.data.entity.User
 import io.github.sooakim.auth.data.repository.UserRepository
 import io.github.sooakim.auth.util.ext.encodeSHA256
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
 
-@RestController
+@Controller
 @RequestMapping("/sign")
 class SignController{
     @Autowired
